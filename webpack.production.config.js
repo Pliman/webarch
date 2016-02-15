@@ -53,7 +53,10 @@ module.exports = {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'babel',
+      query: {
+        stage: 0
+      }
     },{
       test: /\.js?$/,
       exclude: /[node_modules|lib]/,
