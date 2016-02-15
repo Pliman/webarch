@@ -20,3 +20,6 @@
       - 字段：姓名 年龄 职位 工作年限
     - 人员详情
       - 字段：姓名 年龄 职位 工作年限 身份证号码 家庭成员 擅长技术 个人简介
+
+原型图类似
+[https://modao.cc/app/G6RdJs4CrMPbd2GkK1h7XC7fpcLPQaZ](https://modao.cc/app/G6RdJs4CrMPbd2GkK1h7XC7fpcLPQaZ)
