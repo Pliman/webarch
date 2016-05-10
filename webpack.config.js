@@ -47,10 +47,7 @@ module.exports = {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        stage: 0
-      }
+      loader: 'babel'
     },{
       test: /\.js?$/,
       exclude: /[node_modules|lib]/,
