@@ -12,11 +12,16 @@ import koaStatic from  'koa-static';
 import gzip from 'koa-gzip';
 import bodyParser from 'koa-bodyparser';
 import send from 'koa-send';
+import $proxy from 'koa-http-proxy';
+import nodeCommandParams from 'node-command-params';
 
 const app = koa();
 app.use(gzip());
 app.use(bodyParser());
 
+// runtime params
+// proxy proxy backend server
+const runtimeConfig = nodeCommandParams();
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 
@@ -39,27 +44,32 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
 
   // 静态文件
-  app.use(koaStatic('dist'));
+  // app.use(koaStatic('dist'));
 
   // mocks
-  app.use(route.all('*', function *(path, next) {
+  app.use(route.all('*', function* (path, next) {
     try {
       let filePath = path + '.' + this.req.method + '.json';
 
       fs.accessSync(__dirname + '/mocks' + filePath, fs.R_OK);
-      yield send(this, filePath, {root: __dirname + '/mocks'});
+      yield send(this, filePath, { root: __dirname + '/mocks' });
     } catch (e) {
-        yield next;
+      yield next;
     }
   }));
 
-  app.use(route.all('/hello', function* () {
-    this.body = 'hello';
-  }));
+  // Proxy api requests
+  if (runtimeConfig.proxy) {
+    app.use($proxy(runtimeConfig.proxy)); // ex: http://localhost:3100
+  }
+
+  // app.use(route.all('/hello', function* () {
+  //   this.body = 'hello';
+  // }));
 } else {
   app.use(koaStatic('dist'));
 
-  app.use(route.get('*', function *() {
+  app.use(route.get('*', function* () {
     yield send(this, 'dist/index.html');
   }));
 }
