@@ -44,8 +44,7 @@ module.exports = {
       },
       minify: {
         collapseWhitespace: true,
-        processConditionalComments: true,
-        preserveLineBreaks: true
+        processConditionalComments: true
       }
     }),
     new HtmlWebpackPlugin({
@@ -56,8 +55,7 @@ module.exports = {
         return chunk1.id - chunk2.id;
       },
       minify: {
-        collapseWhitespace: true,
-        preserveLineBreaks: true
+        collapseWhitespace: true
       }
     }),
     new InlineManifestWebpackPlugin(),
