@@ -27,6 +27,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'app/index.html',
       filename: 'index.html',
+      inject: false,
       chunks: ['browser', 'ieCompatible']
     }),
     new HtmlWebpackPlugin({
@@ -47,7 +48,7 @@ module.exports = {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loaders: ['react-hot', 'babel']
     },{
       test: /\.js?$/,
       exclude: /[node_modules|lib]/,

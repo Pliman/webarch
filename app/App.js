@@ -1,5 +1,5 @@
 import React from 'react';
-import {run, Route, DefaultRoute, RouteHandler} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import Login from './login/Login.js';
 import Register from './register/Register.js';
@@ -19,21 +19,26 @@ class App extends React.Component {
   }
 
   render() {
-    return (<RouteHandler />);
+    return (
+      <div>
+        {this.props.children}
+      </div>
+    );
   }
 }
 
-const routes = (
-  <Route name="app" path="/" handler={App}>
-    <DefaultRoute name="login" handler={Login}/>
-    <Route name="home" handler={Home}/>
-    <Route name="register" handler={Register}/>
-  </Route>
-);
+const AppRouter = (props) => {
+  return (
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Login}/>
+      </Route>
 
-docReady(function () {
-  run(routes,
-    function (Handler) {
-      ReactDOM.render(<Handler />, document.getElementById('root'));
-    });
-});
+      <Route path="login" component={Login}/>
+      <Route path="home" component={Home}/>
+      <Route path="register" component={Register}/>
+    </Router>
+  );
+};
+
+ReactDOM.render(<AppRouter/>, document.getElementById('root'));
