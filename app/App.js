@@ -1,11 +1,10 @@
 import React from 'react';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute} from 'react-router';
 import ReactDOM from 'react-dom';
 import Login from './login/Login.js';
 import Register from './register/Register.js';
 import Home from './home/Home.js';
 
-const docReady = require('exports?docReady!../lib/docready/docready');
 import './app.less';
 
 class App extends React.Component {
@@ -21,6 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      aaa
         {this.props.children}
       </div>
     );
@@ -29,7 +29,7 @@ class App extends React.Component {
 
 const AppRouter = (props) => {
   return (
-    <Router history={hashHistory}>
+    <Router>
       <Route path="/" component={App}>
         <IndexRoute component={Login}/>
       </Route>

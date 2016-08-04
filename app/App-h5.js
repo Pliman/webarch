@@ -29,7 +29,7 @@ class App extends React.Component {
 
 const AppRouter = (props) => {
   return(
-    <Router history={hashHistory}>
+    <Router>
       <Route path="/" component={App}>
         <IndexRoute component={Login}/>
         <Route path="login" component={Login} />
