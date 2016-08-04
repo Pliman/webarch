@@ -70,11 +70,17 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
+    loaders: [
+    {
+      test: /\.js?$/,
+      loader: 'es3ify-loader'
+    },
+    {
       test: /\.js?$/,
       exclude: /node_modules/,
       loader: 'babel'
-    },{
+    },
+    {
       test: /\.js?$/,
       exclude: /[node_modules|lib]/,
       loader: 'eslint'

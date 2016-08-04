@@ -11,23 +11,23 @@ export default class Register extends React.Component {
       canSubmit: false
     };
   };
-  
+
   submit(data) {
     console.log(JSON.stringify(data, null, 4));
   };
-  
+
   enableButton() {
     this.setState({
       canSubmit: true
     });
   };
-  
+
   disableButton() {
     this.setState({
       canSubmit: false
     });
   };
-    
+
   render() {
     return (
       <div className="container">
