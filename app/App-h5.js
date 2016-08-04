@@ -27,16 +27,18 @@ class App extends React.Component {
 }
 
 
-const AppRouter = (props) => {
-  return(
-    <Router>
-      <Route path="/" component={App}>
-        <IndexRoute component={Login}/>
-        <Route path="login" component={Login} />
-        <Route path="home" component={Home} />
-      </Route>
-    </Router>
-  )
+const routes = (
+  <Route path="/" component={App}>
+    <IndexRoute component={Login}/>
+    <Route path="login" component={Login} />
+    <Route path="home" component={Home} />
+  </Route>
+);
+
+class AppRouter extends React.Component {
+  render () {
+    return <Router routes={routes}></Router>
+  }
 }
 
 

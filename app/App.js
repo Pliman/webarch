@@ -20,25 +20,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      aaa
         {this.props.children}
       </div>
     );
   }
 }
 
-const AppRouter = (props) => {
-  return (
-    <Router>
-      <Route path="/" component={App}>
-        <IndexRoute component={Login}/>
-      </Route>
+// 拆分路由，防止hot-reload时报错：You cannot change <Router routes>; it will be ignored
+const routes = (
+  <Route path="/" component={App}>
+    <IndexRoute component={Login}/>
+    <Route path="login" component={Login}/>
+    <Route path="home" component={Home}/>
+    <Route path="register" component={Register}/>
+  </Route>
+);
 
-      <Route path="login" component={Login}/>
-      <Route path="home" component={Home}/>
-      <Route path="register" component={Register}/>
-    </Router>
-  );
-};
+class AppRouter extends React.Component {
+  render () {
+    return <Router routes={routes}></Router>
+  }
+}
 
 ReactDOM.render(<AppRouter/>, document.getElementById('root'));
