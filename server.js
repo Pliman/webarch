@@ -25,8 +25,6 @@ const runtimeConfig = nodeCommandParams();
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 
-console.log(process.env.NODE_ENV, isDeveloping)
-
 if (isDeveloping) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
