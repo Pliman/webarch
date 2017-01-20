@@ -82,7 +82,7 @@ module.exports = {
     },
     {
       test: /\.js?$/,
-      exclude: /[node_modules|lib]/,
+      exclude: /node_modules|lib/,
       loader: 'eslint'
     }, {
       test: /\.json?$/,

@@ -51,7 +51,7 @@ module.exports = {
       loaders: ['react-hot', 'babel']
     },{
       test: /\.js?$/,
-      exclude: /[node_modules|lib]/,
+      exclude: /node_modules|lib/,
       loader: 'eslint'
     }, {
       test: /\.json?$/,
