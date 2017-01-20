@@ -8,6 +8,10 @@ import Home from './home/Home.js';
 import './app.less';
 
 class App extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.object
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,10 +40,4 @@ const routes = (
   </Route>
 );
 
-class AppRouter extends React.Component {
-  render () {
-    return <Router routes={routes}></Router>
-  }
-}
-
-ReactDOM.render(<AppRouter/>, document.getElementById('root'));
+ReactDOM.render(<Router routes={routes}/>, document.getElementById('root'));

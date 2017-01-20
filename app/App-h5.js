@@ -1,13 +1,15 @@
 import React from 'react';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute} from 'react-router';
 import ReactDOM from 'react-dom';
 import Login from './login/Login-h5.js';
 import Home from './home/Home-h5.js';
 import './app-h5.less';
 
-
-
 class App extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.object
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +18,7 @@ class App extends React.Component {
       }
     };
   }
+
   render() {
     return (
       <div>
@@ -35,11 +38,4 @@ const routes = (
   </Route>
 );
 
-class AppRouter extends React.Component {
-  render () {
-    return <Router routes={routes}></Router>
-  }
-}
-
-
-ReactDOM.render(<AppRouter/>, document.getElementById('h5-root'));
+ReactDOM.render(<Router routes={routes}/>, document.getElementById('h5-root'));

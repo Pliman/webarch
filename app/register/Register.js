@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 import {Form as FormsyForm} from 'formsy-react';
 import FormsyInput from '../components/formsy/input/Input';
 import './register.less';
@@ -10,23 +9,23 @@ export default class Register extends React.Component {
     this.state = {
       canSubmit: false
     };
-  };
+  }
 
   submit(data) {
     console.log(JSON.stringify(data, null, 4));
-  };
+  }
 
   enableButton() {
     this.setState({
       canSubmit: true
     });
-  };
+  }
 
   disableButton() {
     this.setState({
       canSubmit: false
     });
-  };
+  }
 
   render() {
     return (
