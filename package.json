@@ -1,6 +1,6 @@
 {
   "name": "enterprise-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "enterprise-react",
   "main": "server.js",
   "repository": {
@@ -10,7 +10,7 @@
   "author": "Pliman",
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,8 +19,7 @@
     "start": "babel-node server",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "production": "NODE_ENV=production PORT=3000 babel-node server",
-    "eslint": "eslint .",
-    "jscs": "jscs ."
+    "eslint": "eslint ."
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
