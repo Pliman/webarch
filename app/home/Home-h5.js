@@ -12,7 +12,7 @@ export default class Home extends React.Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-xs-12 content">
-            content
+            Home
           </div>
         </div>
       </div>

@@ -37,9 +37,9 @@ module.exports = {
       chunks: ['mobile']
     }),
     new ExtractTextPlugin('[name].css'),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })
@@ -48,20 +48,23 @@ module.exports = {
     loaders: [{
       test: /\.js?$/,
       exclude: /node_modules/,
-      loaders: ['react-hot', 'babel']
-    },{
+      loaders: ['babel-loader']
+    }, {
       test: /\.js?$/,
       exclude: /node_modules|lib/,
-      loader: 'eslint'
+      loader: 'eslint-loader'
     }, {
       test: /\.json?$/,
-      loader: 'json'
+      loader: 'json-loader'
     }, {
       test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+      loader: 'style-loader!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
     }, {
       test: /\.less$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+      loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader!less-loader'
+      })
     }, {
       test: /\.(woff(2)?|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'file-loader'

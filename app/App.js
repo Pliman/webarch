@@ -1,9 +1,10 @@
 import React from 'react';
-import {Router, Route, IndexRoute} from 'react-router';
-import ReactDOM from 'react-dom';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import { render } from 'react-dom';
 import Login from './login/Login.js';
 import Register from './register/Register.js';
 import Home from './home/Home.js';
+import Profile from './profile/profile.js';
 
 import './app.less';
 
@@ -30,14 +31,14 @@ class App extends React.Component {
   }
 }
 
-// 拆分路由，防止hot-reload时报错：You cannot change <Router routes>; it will be ignored
-const routes = (
-  <Route path="/" component={App}>
-    <IndexRoute component={Login}/>
-    <Route path="login" component={Login}/>
-    <Route path="home" component={Home}/>
-    <Route path="register" component={Register}/>
-  </Route>
-);
-
-ReactDOM.render(<Router routes={routes}/>, document.getElementById('root'));
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Login}/>
+      <Route path="login" component={Login}/>
+      <Route path="home" component={Home}/>
+      <Route path="profile" component={Profile}/>
+      <Route path="register" component={Register}/>
+    </Route>
+  </Router>
+), document.getElementById('root'));

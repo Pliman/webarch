@@ -22,9 +22,7 @@
 <body>
   <div id="root"></div>
   <% if(htmlWebpackPlugin.files.webpackManifest){ %>
-  <script>
     <%=htmlWebpackPlugin.files.webpackManifest%>
-  </script>
   <% } %>
   <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
   <% if (!/.*ieCompatible.*\.js$/.test(htmlWebpackPlugin.files.chunks[chunk].entry)) { %>
