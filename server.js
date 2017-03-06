@@ -44,14 +44,24 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
 
   // mocks
-  app.use(router.use('*', async(path, next) => {
+  app.use(router.all('*', async(ctx, next) => {
+    let path = ctx.originalUrl;
+
     try {
-      let filePath = path + '.' + this.req.method + '.json';
+      fs.accessSync(__dirname + '/mocks' + path, fs.R_OK);
+      let filePath = path + '/index.' + ctx.req.method + '.json';
 
       fs.accessSync(__dirname + '/mocks' + filePath, fs.R_OK);
-      send(this, filePath, {root: __dirname + '/mocks'});
+      await send(ctx, filePath, {root: __dirname + '/mocks'});
     } catch (e) {
-      next;
+      try {
+        let filePath = path + '.' + ctx.req.method + '.json';
+
+        fs.accessSync(__dirname + '/mocks' + filePath, fs.R_OK);
+        await send(ctx, filePath, {root: __dirname + '/mocks'});
+      } catch (e) {
+        await next;
+      }
     }
   }).routes());
 
