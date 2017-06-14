@@ -13,7 +13,7 @@
     "node": ">= 6.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "pack": "rm -f node_modules.xz && tar Jcvf node_modules.xz node_modules/",
     "deploy": "cp node_modules.xz node_modules.tmp.xz && tar Jxvf node_modules.tmp.xz && rm -f node_modules.tmp.xz",
     "start": "babel-node ./build/server",
@@ -69,6 +69,7 @@
     "html-webpack-plugin": "^2.26.0",
     "imports-loader": "^0.7.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
+    "jest": "^20.0.4",
     "json-loader": "^0.5.4",
     "kcors": "^1.3.2",
     "koa": "2.0.0",
