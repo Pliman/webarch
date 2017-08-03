@@ -1,5 +1,5 @@
-import {FetchWithPopover} from "./common-service.js";
-import {API} from "../config";
+import { FetchWithPopover } from './common-service.js';
+import { API } from '../constants/api';
 
 const fetchWithPopover = new FetchWithPopover();
 
@@ -10,7 +10,7 @@ export function login(param = {
 }) {
   return fetchWithPopover.send({
     method: 'POST',
-    url: API.login,
+    url: API.LOGIN,
     param
   });
-};
+}

@@ -1,3 +1,12 @@
+v1.1.1
+remove formsy component
+remove modal component
+change isomorphic-fetch to axios
+fix eslint error
+support async/await
+replace less with sass
+remove bootstrap.css
+
 v1.1.0
 remove jscs
 remove mocha

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import './home-browser.less';
+import './home-browser.scss';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ export default class Home extends React.Component {
             <ul className="nav nav-pills nav-stacked">
               <li role="presentation" className="active"><Link to={'/home'}>Home</Link></li>
               <li role="presentation"><Link to={'/profile'}>Profile</Link></li>
-              <li role="presentation"><Link to={'/register'}>Register</Link></li>
               <li role="presentation"><a href="#">Go Back</a></li>
             </ul>
           </div>
