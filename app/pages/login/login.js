@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as UserService from '../../services/user-service';
+import * as UserService from 'services/user-service';
 import './login.scss';
 
 export default class Login extends React.Component {

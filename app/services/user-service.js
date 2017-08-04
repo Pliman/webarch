@@ -1,8 +1,11 @@
 import { FetchWithPopover } from './common-service.js';
-import { API } from '../constants/api';
+import { CONFIG } from '../constants/config';
 
 const fetchWithPopover = new FetchWithPopover();
 
+const API = {
+  LOGIN: CONFIG.HOST + '/api/login'
+};
 
 export function login(param = {
   username: '',

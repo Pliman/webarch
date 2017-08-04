@@ -37,7 +37,8 @@ module.exports = {
       utils: resolve('app/utils'),
       actions: resolve('app/actions'),
       reducers: resolve('app/reducers'),
-      constants: resolve('app/constants')
+      constants: resolve('app/constants'),
+      services: resolve('app/services')
     }
   },
   module: {
