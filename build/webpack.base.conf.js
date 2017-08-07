@@ -37,7 +37,8 @@ module.exports = {
       utils: resolve('app/utils'),
       actions: resolve('app/actions'),
       reducers: resolve('app/reducers'),
-      constants: resolve('app/constants')
+      constants: resolve('app/constants'),
+      services: resolve('app/services')
     }
   },
   module: {
@@ -71,13 +72,6 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-      },
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!less-loader'
-        })
       },
       {
         test: /\.(woff(2)?|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

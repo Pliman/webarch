@@ -1,14 +1,15 @@
 import React from 'react';
-import {Router, Route, IndexRoute} from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 import Login from 'pages/login/login-h5.js';
 import Home from 'pages/home/home-h5.js';
-import './app-h5.less';
+import './app-h5.scss';
 
 class App extends React.Component {
   static propTypes = {
-    children: React.PropTypes.object
+    children: PropTypes.object
   };
 
   constructor(props) {

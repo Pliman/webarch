@@ -1,5 +1,5 @@
 import React from 'react';
-import './profile-h5.less';
+import './profile-h5.scss';
 
 export default class Profile extends React.Component {
   constructor(props) {
