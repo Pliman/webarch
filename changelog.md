@@ -1,3 +1,6 @@
+v1.2.0
+
+
 v1.1.1
 remove formsy component
 remove modal component

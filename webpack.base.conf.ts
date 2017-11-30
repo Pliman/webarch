@@ -1,22 +1,21 @@
-var path = require('path');
-var webpack = require('webpack');
-
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+import * as path from 'path'
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir);
+  return path.join(__dirname, dir);
 }
 
-module.exports = {
+export default {
   entry: {
     browser: [
-      resolve('app/entry/App.js')
+      resolve('app/entry/App.tsx')
     ],
-    ieCompatible: resolve('app/utils/ie-compatible.js'),
     mobile: [
-      resolve('app/entry/App-h5.js')
+      resolve('app/entry/App-h5.tsx')
     ],
-    flexible: resolve('app/utils/flexible.js')
+    flexible: [
+      resolve('app/utils/flexible/flexible.js')
+    ]
   },
   output: {
     path: resolve('dist'),
@@ -24,7 +23,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [
       resolve('app'),
       resolve('node_modules')
@@ -35,32 +34,26 @@ module.exports = {
       components: resolve('app/components'),
       pages: resolve('app/pages'),
       utils: resolve('app/utils'),
-      actions: resolve('app/actions'),
-      reducers: resolve('app/reducers'),
       constants: resolve('app/constants'),
-      services: resolve('app/services')
     }
   },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loader: 'es3ify-loader'
-      },
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader']
-      },
-      {
-         test: /\.js?$/,
-         exclude: /node_modules|lib/,
-         loader: 'eslint-loader'
-      },
-      {
         test: /\.json?$/,
         loader: 'json-loader'
+      },
+      {
+        test: /\.(tsx|ts)$/,
+        loader: "ts-loader",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.less/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!less-loader'
+        })
       },
       {
         test: /\.scss$/,
@@ -68,6 +61,16 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader!sass-loader'
         })
+      },
+      {
+        test: /\.pcss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader'
+          ],
+        }),
       },
       {
         test: /\.css$/,

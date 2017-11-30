@@ -1,27 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import * as UserService from 'services/user-service';
-import './login.scss';
+import * as React from 'react'
+import PropTypes from 'prop-types'
+// import * as UserService from './services/user-service'
+import './login.scss'
 
-export default class Login extends React.Component {
-  static propTypes = {
-    router: PropTypes.object
-  };
+interface LoginProps {
+  router
+  history
+}
 
+interface LoginState {
+  test: string
+}
+
+export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props) {
-    super(props);
-    this.state = {test: 'foo'};
+    super(props)
+    this.state = {
+      test: 'foo'
+    }
   }
 
   async login(event) {
-    event.preventDefault();
-    const loginRes = await UserService.login({
-      username: '',
-      password: ''
-    });
-    if (loginRes.code === '0') {
-      this.props.router.push('/home');
-    }
+    event.preventDefault()
+
+    this.props.history.push('/home')
+
+    // const loginRes = await UserService.login({
+    //   username: '',
+    //   password: ''
+    // })
+    // if (loginRes.code === '0') {
+    //   this.props.router.push('/home')
+    // }
   }
 
   render() {
@@ -41,6 +51,6 @@ export default class Login extends React.Component {
           <input type="submit" className="btn btn-default" value="submit" />
         </form>
       </div>
-    );
+    )
   }
 }

@@ -1,10 +1,14 @@
-import React from 'react';
-import './home-h5.scss';
+import * as React from 'react'
+import './home-h5.scss'
 
-export default class Home extends React.Component {
+interface HomeState {
+  test: string
+}
+
+export default class Home extends React.Component<{}, HomeState> {
   constructor(props) {
-    super(props);
-    this.state = {test: 'foo'};
+    super(props)
+    this.state = {test: 'foo'}
   }
 
   render() {
@@ -16,6 +20,6 @@ export default class Home extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

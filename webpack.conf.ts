@@ -1,17 +1,16 @@
-var webpack = require('webpack');
-var path = require('path');
-var merge = require('webpack-merge');
-var baseConfig = require('./webpack.base.conf');
+import * as webpack from 'webpack'
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+import * as merge from 'webpack-merge'
+import baseConfig from './webpack.base.conf'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 Object.keys(baseConfig.entry).forEach(function(name) {
   baseConfig.entry[name] = ['webpack-hot-middleware/client?reload=true'].concat(baseConfig.entry[name]);
 });
 
-module.exports = merge(baseConfig, {
-  devtool: 'source-map',
+export default merge(baseConfig, {
+  devtool: 'eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/entry/index.html',
@@ -30,7 +29,7 @@ module.exports = merge(baseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('demo')
+      'process.env.NODE_ENV': JSON.stringify('development')
     })
   ]
 })

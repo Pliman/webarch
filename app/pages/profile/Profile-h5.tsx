@@ -1,7 +1,11 @@
-import React from 'react';
+import * as React from 'react'
 import './profile-h5.scss';
 
-export default class Profile extends React.Component {
+interface ProfileState {
+  test: string
+}
+
+export default class Profile extends React.Component<{}, ProfileState> {
   constructor(props) {
     super(props);
     this.state = {test: 'foo'};

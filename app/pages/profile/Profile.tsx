@@ -1,8 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router';
+import * as React from 'react'
+import { Link } from 'react-router-dom';
 import './profile.scss';
 
-export default class Profile extends React.Component {
+interface ProfileState {
+  test: string
+}
+
+export default class Profile extends React.Component<{}, ProfileState> {
   constructor(props) {
     super(props);
     this.state = {test: 'foo'};

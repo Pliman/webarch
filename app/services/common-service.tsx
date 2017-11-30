@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import NotificationSystem from 'react-notification-system';
 import Http from '../utils/http';
 
 class Notify {
@@ -12,71 +10,37 @@ class Notify {
       _root.className = 'notifucation-container';
       document.body.appendChild(_root);
     }
-    this.notifyInstance = ReactDOM.render(<NotificationSystem allowHTML />, _root);
   }
 
   error(title, err) {
     let errorMessage = '';
-    if (typeof error === 'string') {
+    if (typeof err === 'string') {
       errorMessage = err;
     } else if (err instanceof Error) {
       errorMessage = err.name + ': ' + err.message;
     }
-    this.notifyInstance.addNotification({
-      title,
-      errorMessage,
-      level: 'error',
-      position: 'tr'
-    });
   }
 
   success(title, message) {
-    this.notifyInstance.addNotification({
-      title,
-      message,
-      level: 'success',
-      position: 'tr'
-    });
+
   }
 
   warning(title, message) {
-    this.notifyInstance.addNotification({
-      title,
-      message,
-      level: 'warning',
-      position: 'tr'
-    });
+
   }
 
   info(title, message) {
-    this.notifyInstance.addNotification({
-      title,
-      message,
-      level: 'info',
-      position: 'tr'
-    });
+
   }
 
   confirm(message, confirmCallback) {
-    this.notifyInstance.addNotification({
-      title: '',
-      message: message,
-      level: 'warning',
-      position: 'tr',
-      autoDismiss: 0,
-      action: {
-        label: '确定',
-        callback: () => {
-          confirmCallback();
-        }
-      }
-    });
+
   }
 }
 
 class FetchWithPopover {
   constructor() {
-    this.notifyInstance = new Notify();
+    // this.notifyInstance = new Notify();
   }
 
   send(config = {
@@ -106,12 +70,12 @@ class FetchWithPopover {
         } else if (code === 4) {
           window.location.href = '/';
         } else {
-          this.notifyInstance.error('请求失败', response.message);
+          // this.notifyInstance.error('请求失败', response.message);
         }
         return null;
       })
       .catch((error) => {
-        this.notifyInstance.error('内部错误', error);
+        // this.notifyInstance.error('内部错误', error);
       });
   }
 }

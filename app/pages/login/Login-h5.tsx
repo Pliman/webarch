@@ -1,8 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router';
+import * as React from 'react'
+import { Link } from 'react-router-dom';
 import './login.scss';
 
-export default class Login extends React.Component {
+interface LoginState {
+  test: string
+}
+
+export default class Login extends React.Component<{}, LoginState> {
   constructor(props) {
     super(props);
     this.state = {test: 'foo'};

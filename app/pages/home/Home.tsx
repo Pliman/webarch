@@ -1,11 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router';
-import './home-browser.scss';
+import * as React from 'react'
+import { Link } from 'react-router-dom'
+// import './home.less'
+import './home.pcss'
 
-export default class Home extends React.Component {
+interface HomeState {
+  test: string
+}
+
+export default class Home extends React.Component<{}, HomeState> {
   constructor(props) {
-    super(props);
-    this.state = {test: 'foo'};
+    super(props)
+    this.state = {test: 'foo'}
   }
 
   render() {
@@ -14,16 +19,17 @@ export default class Home extends React.Component {
         <div className="row">
           <div className="col-sm-4">
             <ul className="nav nav-pills nav-stacked">
-              <li role="presentation" className="active"><Link to={'/home'}>Home</Link></li>
+              <li role="presentation" className="active"><Link
+                to={'/home'}>Home</Link></li>
               <li role="presentation"><Link to={'/profile'}>Profile</Link></li>
               <li role="presentation"><a href="#">Go Back</a></li>
             </ul>
           </div>
-          <div className="col-sm-8 content">
+          <div className="col-sm-8 home-content sea">
             Home
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

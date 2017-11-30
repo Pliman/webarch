@@ -31,6 +31,7 @@ results
 tmp
 bower_components
 dist
+ts_dist
 .sass-cache
 build/Release
 

@@ -11,9 +11,11 @@ export function login(param = {
   username: '',
   password: ''
 }) {
-  return fetchWithPopover.send({
-    method: 'POST',
-    url: API.LOGIN,
-    param
-  });
+  return new Promise(resolve => {resolve(1)})
 }
+
+// return fetchWithPopover123123.send123123({
+//   method: 'POST',
+//   url: API.LOGIN,
+//   ...param
+// });

@@ -1,19 +1,19 @@
-var webpack = require('webpack');
-var path = require('path');
-var merge = require('webpack-merge');
-var baseConfig = require('./webpack.base.conf');
+import * as webpack from 'webpack'
+import * as path from 'path'
+import merge from 'webpack-merge'
+import baseConfig from './webpack.base.conf'
 
-var clean = require('clean-webpack-plugin');
-var InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+import * as clean from 'clean-webpack-plugin'
+import * as InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
+import * as autoprefixer from 'autoprefixer'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-module.exports = merge(baseConfig, {
+export default merge(baseConfig, {
   entry: {
     common: ['react', 'react-router']
   },
