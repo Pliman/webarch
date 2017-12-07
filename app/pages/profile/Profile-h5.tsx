@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './profile-h5.scss';
+import './profile-h5.pcss';
 
 interface ProfileState {
   test: string

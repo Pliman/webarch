@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import Login from '../pages/login/Login-h5'
 import Home from '../pages/home/Home-h5'
 
-import './app-h5.scss'
+import './app-h5.pcss'
 
 interface AppProps {
   children

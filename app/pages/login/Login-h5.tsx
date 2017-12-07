@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom';
-import './login.scss';
+import './login.pcss';
 
 interface LoginState {
   test: string
