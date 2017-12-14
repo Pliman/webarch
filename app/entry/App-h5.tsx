@@ -39,11 +39,8 @@ class App extends React.Component<AppProps, AppState> {
 render((
     <Router>
       <Switch>
-        <Route exact path="/" component={App}/>
-        <Route path="/login" component={Login}/>
+        <Route exact path="/" component={Login}/>
         <Route path="/home" component={Home}/>
       </Switch>
     </Router>),
   document.getElementById('h5-root'))
-
-export default App

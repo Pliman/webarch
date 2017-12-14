@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './home-h5.scss'
+import './home-h5.pcss'
 
 interface HomeState {
   test: string

@@ -1,6 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
-// import * as UserService from './services/user-service'
 import './login.pcss'
 
 interface LoginProps {
@@ -24,14 +22,6 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     event.preventDefault()
 
     this.props.history.push('/home')
-
-    // const loginRes = await UserService.login({
-    //   username: '',
-    //   password: ''
-    // })
-    // if (loginRes.code === '0') {
-    //   this.props.router.push('/home')
-    // }
   }
 
   render() {

@@ -1,16 +1,45 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import './home.less'
+
+import { actions, actionType } from '../../utils/redux-decorators'
+import { actionGenerator } from '../../utils/actionType'
+
+@actions
+class HomeActions {
+  static GET_CURRENT_USER = actionGenerator('GET_CURRENT_USER')
+}
+
+import './HomeService'
 import './home.pcss'
 
 interface HomeState {
   test: string
 }
 
-export default class Home extends React.Component<{}, HomeState> {
+interface HomeProps {
+  user
+  dispatch
+  router
+}
+
+class Home extends React.Component<HomeProps, HomeState> {
+  @actionType()
+  static GET_CURRENT_USER
+
   constructor(props) {
     super(props)
     this.state = {test: 'foo'}
+  }
+
+  componentDidMount() {
+    this.props.dispatch({
+      type: Home.GET_CURRENT_USER.ACTION
+    })
+
+    setTimeout(() => {
+      console.log(this.props)
+    }, 2000)
   }
 
   render() {
@@ -26,10 +55,18 @@ export default class Home extends React.Component<{}, HomeState> {
             </ul>
           </div>
           <div className="col-sm-8 home-content sea">
-            Home
+            {this.props.user && this.props.user.name} Home
           </div>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Home)

@@ -3,10 +3,11 @@ import { Provider } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { render } from 'react-dom'
 
-import store from '../store/configureStore';
 import Login from '../pages/login/Login'
 import Home from '../pages/home/Home'
 import Profile from '../pages/profile/Profile'
+
+import store from './configureStore';
 
 import './app.pcss'
 
