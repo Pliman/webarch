@@ -27,10 +27,4 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
 const store = createStoreWithMiddleware(reducer, {})
 sagaMiddleware.run(getSagas)
 
-// if (module.hot) {
-//   module.hot.accept('../reducers', () => {
-//     store.replaceReducer(require('../reducers').default)
-//   })
-// }
-
 export default store

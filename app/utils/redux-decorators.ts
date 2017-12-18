@@ -1,18 +1,23 @@
-import { createReducer } from './createReducer'
 import { fork, takeEvery } from 'redux-saga/effects'
 
 let actionTypes = {}
 let sagas = []
 let reducers = {}
 
-export function actions(constructor) {
-   for(let action in constructor) {
-     actionTypes[action] = constructor[action]
-   }
+export function actionGenerator(key) {
+  return {
+    ACTION: key,
+    SUCCESS: `${key}_SUCCESS`,
+    FAILED: `${key}_FAILED`
+  }
 }
 
-export function actionType (typeName?) {
+export function action(typeName?) {
   return (target, key) => {
+    if (!actionTypes[typeName || key]) {
+      actionTypes[typeName || key] = actionGenerator(typeName || key)
+    }
+
     target[key] = actionTypes[typeName || key]
   }
 }
@@ -31,6 +36,16 @@ export function* getSagas() {
   let saga
   for (let i = 0, length = sagas.length; i < length; i++) {
     yield fork(sagas[i])
+  }
+}
+
+function createReducer(initialState, fnMap) {
+  return (state = initialState, {
+    type,
+    payload
+  }, ...rest) => {
+    const handler = fnMap[type]
+    return handler ? handler(state, payload, ...rest) : state
   }
 }
 

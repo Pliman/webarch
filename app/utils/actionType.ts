@@ -3,5 +3,5 @@ export function actionGenerator(key) {
     ACTION: key,
     SUCCESS: `${key}_SUCCESS`,
     FAILED: `${key}_FAILED`
-  };
+  }
 }

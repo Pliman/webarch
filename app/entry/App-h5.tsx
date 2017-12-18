@@ -2,8 +2,8 @@ import * as React from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { render } from 'react-dom'
 
-import Login from '../pages/login/Login-h5'
-import Home from '../pages/home/Home-h5'
+import Login from '../login/Login-h5'
+import Home from '../home/Home-h5'
 
 import './app-h5.pcss'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './profile-h5.pcss';
+import './profile-h5.pcss'
 
 interface ProfileState {
   test: string
@@ -7,8 +7,8 @@ interface ProfileState {
 
 export default class Profile extends React.Component<{}, ProfileState> {
   constructor(props) {
-    super(props);
-    this.state = {test: 'foo'};
+    super(props)
+    this.state = {test: 'foo'}
   }
 
   render() {
@@ -20,6 +20,6 @@ export default class Profile extends React.Component<{}, ProfileState> {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

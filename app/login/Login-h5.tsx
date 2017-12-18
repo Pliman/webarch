@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom';
-import './login.pcss';
+import { Link } from 'react-router-dom'
+import './login.pcss'
 
 interface LoginState {
   test: string
@@ -8,8 +8,8 @@ interface LoginState {
 
 export default class Login extends React.Component<{}, LoginState> {
   constructor(props) {
-    super(props);
-    this.state = {test: 'foo'};
+    super(props)
+    this.state = {test: 'foo'}
   }
 
   render() {
@@ -29,6 +29,6 @@ export default class Login extends React.Component<{}, LoginState> {
           <Link className="btn btn-default" to="home">submit</Link>
         </form>
       </div>
-    );
+    )
   }
 }

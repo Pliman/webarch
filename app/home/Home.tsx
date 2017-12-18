@@ -2,13 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { actions, actionType } from '../../utils/redux-decorators'
-import { actionGenerator } from '../../utils/actionType'
-
-@actions
-class HomeActions {
-  static GET_CURRENT_USER = actionGenerator('GET_CURRENT_USER')
-}
+import { action } from '../utils/redux-decorators'
 
 import './HomeService'
 import './home.pcss'
@@ -24,7 +18,7 @@ interface HomeProps {
 }
 
 class Home extends React.Component<HomeProps, HomeState> {
-  @actionType()
+  @action()
   static GET_CURRENT_USER
 
   constructor(props) {
