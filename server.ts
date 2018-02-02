@@ -3,7 +3,7 @@ import * as httpProxy from 'http-proxy'
 import * as webpack from  'webpack'
 import config from './webpack.conf'
 import * as webpackDevMiddleware from 'koa-webpack-dev-middleware'
-import hotMiddleware from  'koa2-webpack-hot-middleware'
+import hotMiddleware from  'koa-webpack-hot-middleware-async'
 import * as path from 'path'
 
 import * as Koa from  'koa'
