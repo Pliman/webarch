@@ -62,7 +62,7 @@
     "koa-static": "^4.0.2",
     "koa-static-middleware": "0.0.3",
     "koa-webpack-dev-middleware": "^2.0.2",
-    "koa2-webpack-hot-middleware": "^1.0.1",
+    "koa-webpack-hot-middleware-async": "^1.0.0",
     "node-command-params": "^0.1.0",
     "postcss-loader": "^2.0.9",
     "postcss": "^6.0.14",

@@ -2,7 +2,7 @@ import * as path from 'path'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
 export default {
@@ -30,11 +30,9 @@ export default {
     ],
     alias: {
       app: resolve('app'),
-      assets: resolve('app/assets'),
       components: resolve('app/components'),
-      pages: resolve('app/pages'),
       utils: resolve('app/utils'),
-      constants: resolve('app/constants'),
+      constants: resolve('app/config'),
     }
   },
   module: {
@@ -49,20 +47,6 @@ export default {
         exclude: /node_modules/
       },
       {
-        test: /\.less/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!less-loader'
-        })
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!sass-loader'
-        })
-      },
-      {
         test: /\.pcss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -74,7 +58,7 @@ export default {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+        loader: 'css-loader!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
       },
       {
         test: /\.(woff(2)?|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -85,4 +69,4 @@ export default {
         loader: 'file-loader?name=i/[name].[ext]'
       }]
   }
-};
+}

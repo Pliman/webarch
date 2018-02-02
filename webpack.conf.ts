@@ -6,8 +6,8 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 Object.keys(baseConfig.entry).forEach(function(name) {
-  baseConfig.entry[name] = ['webpack-hot-middleware/client?reload=true'].concat(baseConfig.entry[name]);
-});
+  baseConfig.entry[name] = ['webpack-hot-middleware/client?reload=true'].concat(baseConfig.entry[name])
+})
 
 export default merge(baseConfig, {
   devtool: 'eval-source-map',
