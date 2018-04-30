@@ -17,9 +17,9 @@
     "pack": "rm -f node_modules.xz && tar Jcvf node_modules.xz node_modules/",
     "deploy": "cp node_modules.xz node_modules.tmp.xz && tar Jxvf node_modules.tmp.xz && rm -f node_modules.tmp.xz",
     "start": "NODE_ENV=development ts-node server",
-    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "build:dev": "NODE_ENV=development webpack --config ./build/webpack.dev.conf.js --progress --profile --colors",
-    "build:demo": "NODE_ENV=demo webpack --config ./build/webpack.demo.conf.js --progress --profile --colors",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.conf.ts --progress --profile --colors",
+    "build:dev": "NODE_ENV=development webpack --config ./build/webpack.conf.ts --progress --profile --colors",
+    "build:demo": "NODE_ENV=demo webpack --config ./build/webpack.conf.ts --progress --profile --colors",
     "production": "NODE_ENV=production PORT=3000 node server",
     "lint": "tslint --type-check --project tsconfig.json \"app/**/*.ts{,x}\""
   },

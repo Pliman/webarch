@@ -1,6 +1,6 @@
 import * as webpack from 'webpack'
 import * as path from 'path'
-import merge from 'webpack-merge'
+import * as merge from 'webpack-merge'
 import baseConfig from './webpack.base.conf'
 
 import * as clean from 'clean-webpack-plugin'
