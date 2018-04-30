@@ -36,7 +36,7 @@ export default merge(baseConfig, {
       filename: 'index.html',
       chunks: ['common', 'browser', 'ieCompatible'],
       chunksSortMode: function (chunk1, chunk2) {
-        return chunk1.id - chunk2.id
+        return chunk2.id - chunk1.id
       },
       minify: {
         collapseWhitespace: true,
@@ -48,7 +48,7 @@ export default merge(baseConfig, {
       filename: 'index-h5.html',
       chunks: ['common', 'mobile', 'flexible'],
       chunksSortMode: function (chunk1, chunk2) {
-        return chunk1.id - chunk2.id
+        return chunk2.id - chunk1.id
       },
       minify: {
         collapseWhitespace: true
