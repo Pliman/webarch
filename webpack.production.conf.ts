@@ -9,20 +9,16 @@ import * as autoprefixer from 'autoprefixer'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
-
 export default merge(baseConfig, {
   entry: {
     common: ['react', 'react-router']
   },
   output: {
-    path: resolve('dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name]-[chunkhash].min.js'
   },
   plugins: [
-    new clean(['../dist']),
+    new clean(['./dist']),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
