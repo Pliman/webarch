@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <link href=".<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
 
     <% for(var chunk in htmlWebpackPlugin.files.chunks){ %>
       <% if (/.*flexible.*\.js$/.test(htmlWebpackPlugin.files.chunks[chunk].entry)) { %>
-        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>">
+        <script src=".<%= htmlWebpackPlugin.files.chunks[chunk].entry %>">
         </script>
       <% } %>
     <% } %>
@@ -28,7 +28,7 @@
 
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <% if (!/.*flexible.*\.js$/.test(htmlWebpackPlugin.files.chunks[chunk].entry)) { %>
-        <script src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+        <script src=".<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
       <% } %>
     <% } %>
   </body>
