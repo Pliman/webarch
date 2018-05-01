@@ -11,6 +11,9 @@ Object.keys(baseConfig.entry).forEach(function(name) {
 
 export default merge(baseConfig, {
   devtool: 'eval-source-map',
+  output: {
+    publicPath: '/'
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/entry/index.html',
