@@ -9,6 +9,9 @@ import * as autoprefixer from 'autoprefixer'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 
+const DESKTOP_CHUNKS = ['common', 'browser', 'ieCompatible']
+const MOBILE_CHUNKS = ['common', 'mobile', 'flexible']
+
 export default merge(baseConfig, {
   entry: {
     common: ['react', 'react-router']
@@ -34,9 +37,9 @@ export default merge(baseConfig, {
       inject: false,
       template: 'app/entry/index.html',
       filename: 'index.html',
-      chunks: ['common', 'browser', 'ieCompatible'],
+      chunks: DESKTOP_CHUNKS,
       chunksSortMode: function (chunk1, chunk2) {
-        return chunk2.id - chunk1.id
+        return DESKTOP_CHUNKS.indexOf(chunk1.names[0]) - DESKTOP_CHUNKS.indexOf(chunk2.names[0])
       },
       minify: {
         collapseWhitespace: true,
@@ -44,14 +47,16 @@ export default merge(baseConfig, {
       }
     }),
     new HtmlWebpackPlugin({
+      inject: false,
       template: 'app/entry/index-h5.html',
       filename: 'index-h5.html',
-      chunks: ['common', 'mobile', 'flexible'],
+      chunks: MOBILE_CHUNKS,
       chunksSortMode: function (chunk1, chunk2) {
-        return chunk2.id - chunk1.id
+        return MOBILE_CHUNKS.indexOf(chunk1.names[0]) - MOBILE_CHUNKS.indexOf(chunk2.names[0])
       },
       minify: {
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        processConditionalComments: true
       }
     }),
     new InlineManifestWebpackPlugin(),

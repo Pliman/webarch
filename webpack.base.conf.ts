@@ -20,7 +20,7 @@ export default {
   output: {
     path: resolve('dist'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
