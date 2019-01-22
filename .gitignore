@@ -41,3 +41,5 @@ build/Release
 # temp files
 .tmp
 mock
+
+package-lock.json

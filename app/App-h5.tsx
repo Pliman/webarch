@@ -1,15 +1,11 @@
 import * as React from 'react'
-import { Provider } from 'react-redux'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { render } from 'react-dom'
 
-import Login from '../login/Login'
-import Home from '../home/Home'
-import Profile from '../profile/Profile'
+import Login from './login/Login-h5'
+import Home from './home/Home-h5'
 
-import store from './Store'
-
-import './app.pcss'
+import './app-h5.pcss'
 
 interface AppProps {
   children
@@ -33,6 +29,7 @@ class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <div>
+        <h1>App</h1>
         {this.props.children}
       </div>
     )
@@ -40,13 +37,10 @@ class App extends React.Component<AppProps, AppState> {
 }
 
 render((
-  <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/" component={Login}/>
         <Route path="/home" component={Home}/>
-        <Route path="/profile" component={Profile}/>
       </Switch>
-    </Router>
-  </Provider>
-), document.getElementById('root'))
+    </Router>),
+  document.getElementById('h5-root'))
