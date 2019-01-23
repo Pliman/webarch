@@ -78,5 +78,6 @@ export default merge(baseConfig, {
                 ]
             }
         })
-    ]
+    ],
+    mode: 'production'
 })

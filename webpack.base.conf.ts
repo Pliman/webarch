@@ -67,5 +67,17 @@ export default {
                 test: /\.(png|jpg|jpeg|gif)$/,
                 use: 'file-loader?name=i/[name].[ext]'
             }]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 3000,
+            maxSize: 0,
+            minChunks: 2,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true
+        }
     }
 }
