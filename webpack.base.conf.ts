@@ -26,8 +26,10 @@ export default {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         modules: [
             resolve('app'),
-            resolve('node_modules')
+            resolve('node_modules'),
+            resolve('bbb')
         ],
+        // modules: ['node_modules', resolve('node_modules')],
         alias: {
             app: resolve('app'),
             components: resolve('app/components'),
@@ -41,10 +43,22 @@ export default {
                 test: /\.json?$/,
                 loader: 'json-loader'
             },
+            // {
+            //     test: /\.(tsx|ts)$/,
+            //     loader: "ts-loader"
+            //     // ,
+            //     // exclude: /node_modules/
+            // },
             {
-                test: /\.(tsx|ts)$/,
-                loader: "ts-loader",
-                exclude: /node_modules/
+                test: /\.(ts|tsx)$/,
+                use: [
+                    {
+                        loader: require.resolve('ts-loader'),
+                        options: {
+                            transpileOnly: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.pcss$/,
@@ -58,6 +72,7 @@ export default {
             },
             {
                 test: /\.css$/,
+                include: path.resolve(__dirname, './node_modules'),
                 loader: 'css-loader!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
             },
             {

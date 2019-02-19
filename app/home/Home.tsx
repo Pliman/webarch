@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Button} from 'antd'
 
 import { action } from '../utils/redux-decorators'
 
@@ -51,7 +50,6 @@ class Home extends React.Component<HomeProps, HomeState> {
                     </div>
                     <div className="col-sm-8 home-content sea">
                         {this.props.user && this.props.user.name} Home
-                        <Button type="primary">Button</Button>
                     </div>
                 </div>
             </div>
