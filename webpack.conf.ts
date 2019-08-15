@@ -20,13 +20,13 @@ export default merge(baseConfig, {
             template: 'app/index.html',
             filename: 'index.html',
             inject: false,
-            chunks: ['browser', 'ieCompatible']
+            chunks: ['common', 'browser', 'ieCompatible']
         }),
         new HtmlWebpackPlugin({
             template: 'app/index-h5.html',
             inject: false,
             filename: 'index-h5.html',
-            chunks: ['mobile', 'flexible']
+            chunks: ['common', 'mobile', 'flexible']
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

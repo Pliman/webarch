@@ -77,7 +77,10 @@ export default {
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
             automaticNameDelimiter: '~',
-            name: true
+            name: true,
+            cacheGroups: {
+                commons: {test: /[\\/]node_modules[\\/]/, name: "common", chunks: "all"}
+            }
         }
     }
 }
