@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { Provider } from 'react-redux'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { render } from 'react-dom'
+import {Provider} from 'react-redux'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import {render} from 'react-dom'
 
-import Login from '../login/Login'
 import Home from '../home/Home'
 import Profile from '../profile/Profile'
 
@@ -43,7 +42,7 @@ render((
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Login}/>
+        <Route path="/" exact component={Home}/>
         <Route path="/home" component={Home}/>
         <Route path="/profile" component={Profile}/>
       </Switch>
