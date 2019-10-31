@@ -4,8 +4,6 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import {render} from 'react-dom'
 
 import Home from '../home/Home'
-import Profile from '../profile/Profile'
-
 import store from './Store'
 
 import './app.pcss'
@@ -43,8 +41,6 @@ render((
     <Router>
       <Switch>
         <Route path="/" exact component={Home}/>
-        <Route path="/home" component={Home}/>
-        <Route path="/profile" component={Profile}/>
       </Switch>
     </Router>
   </Provider>

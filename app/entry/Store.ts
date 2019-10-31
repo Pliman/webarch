@@ -12,19 +12,11 @@ const reducer = combineReducers({
 
 const sagaMiddleware = createSagaMiddleware()
 
-let createStoreWithMiddleware
+const logger = createLogger({
+  collapsed: true
+})
 
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
-  const logger = createLogger({
-    collapsed: true
-  })
-
-  createStoreWithMiddleware = compose(applyMiddleware(sagaMiddleware, routerMiddleware(), logger))(createStore)
-} else {
-  createStoreWithMiddleware = applyMiddleware(sagaMiddleware, routerMiddleware())(createStore)
-}
-
-const store = createStoreWithMiddleware(reducer, {})
+const store = compose(applyMiddleware(sagaMiddleware, routerMiddleware(), logger))(createStore)(reducer, {})
 sagaMiddleware.run(getSagas)
 
 export default store

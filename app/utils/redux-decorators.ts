@@ -4,7 +4,7 @@ let actionTypes = {}
 let sagas = []
 let reducers = {}
 
-export function actionGenerator(key) {
+function actionGenerator(key) {
   return {
     ACTION: key,
     SUCCESS: `${key}_SUCCESS`,

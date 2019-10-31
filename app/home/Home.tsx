@@ -48,7 +48,7 @@ class Home extends React.Component<HomeProps, HomeState> {
               <li role="presentation"><a href="#">Go Back</a></li>
             </ul>
           </div>
-          <div className="col-sm-8 home-content sea">
+          <div className="col-sm-8 home-content">
             {this.props.user && this.props.user.name} Home
           </div>
         </div>
