@@ -28,7 +28,7 @@
     "dependencies": {
         "axios": "^0.18.0",
         "echarts": "^4.2.0-rc.2",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.19",
         "mobx": "^5.9.0",
         "mobx-react": "^5.4.3",
         "react": "^16.7.0",
