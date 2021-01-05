@@ -26,7 +26,7 @@
         "lint": "tslint --type-check --project tsconfig.json \"app/**/*.ts{,x}\""
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "echarts": "^4.2.0-rc.2",
         "lodash": "^4.17.11",
         "mobx": "^5.9.0",
